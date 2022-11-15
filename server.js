@@ -1,4 +1,5 @@
 const express = require('express')
+const routerProductos = require('./routers/productos')
 
 //Configuraciones 
 const app = express()
@@ -10,6 +11,8 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
 //Routeo de mi aplicacion
+app.use('/api/productos', routerProductos)
+
 app.get('/', (req, res) =>{
     res.send('holaa')
 })
