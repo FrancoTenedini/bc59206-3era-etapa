@@ -1,0 +1,13 @@
+[
+	{
+		"nombre": "producto Nuevo 2",
+		"precio": "99992",
+		"stock": "2",
+		"marca": "marca nueva 2",
+		"categoria": "categoria nueva 2",
+		"detalles": "detalles nuevos 2",
+		"foto": "fotoNueva2.jpg",
+		"envio": "false",
+		"id": "1"
+	}
+]

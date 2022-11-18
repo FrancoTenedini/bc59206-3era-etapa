@@ -13,13 +13,9 @@ app.use(express.json())
 //Routeo de mi aplicacion
 app.use('/api/productos', routerProductos)
 
-app.get('/', (req, res) =>{
-    res.send('holaa')
-})
-
 const PORT = process.env.PORT
 app.listen(PORT, (err) => {
     if(err) throw new Error (`Sucedio un error ${err}`)
-    
+        
     console.log(`Servidor arriba, escuchando en el puerto: ${PORT}`)
 })
