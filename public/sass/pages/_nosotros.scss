@@ -1,0 +1,264 @@
+.main-nosotros{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    @media (min-width: 300px) and (max-width: 768px) {
+      margin-top: 50px;
+    }
+}
+
+.section-info{
+    display: flex;
+    width: 1200px;
+    margin-left: 150px;
+    &__div-img{
+        width: 750px;
+        height: 500px;
+        margin-top: 50px;
+        background-image: url(../../img/nosotros/reunion1.jpg);
+        animation-name: imagenes;
+        animation-duration: 15s;
+        animation-delay: 5s;
+        animation-iteration-count: infinite;
+        background-size: contain;
+        z-index: -1;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        @media (min-width: 300px) and (max-width: 768px) {
+           width: 80vw;
+        }
+    }
+   &__content{
+    background-color: #ffffff;
+    width: 300px;
+    margin-top: 50px;
+    &-titulo{
+       border: 1px solid black;
+       font-size: 3em;
+       text-align: center;
+       line-height: 100px;
+       width: 500px;
+       height: 100px;
+       position: relative;
+       right: 225px;
+       bottom: 30px;
+       background-color:#18131F ;
+       color: white;
+       border: 3px solid #ae1361 ;
+       border-radius: 20px;
+    }
+
+    &-texto{
+        background-color: #EBEBEB;
+        color: black;
+        padding: 20px;
+        width: 250px;
+        margin-left: 25px;
+        font-size: 1em;
+        
+
+    }
+    
+}
+@keyframes imagenes {
+    0%{    background-image: url(../../img/nosotros/reunion1.jpg);}
+    35%{    background-image: url(../../img/nosotros/reunion2.jpg);}
+    65%{    background-image: url(../../img/nosotros/reunion3.jpg);}
+    100%{    background-image: url(../../img/nosotros/reunion1.jpg);}
+}
+} 
+@media(min-width: 300px) and (max-width: 768px){
+    .main-nosotros{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+    }
+    
+    .section-info{
+        
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       position: relative;
+       bottom: 10px;
+       margin: 0px;
+       width:100%;
+       border-radius: 25px;
+       
+       &__div-img{
+     /*    display: none; */
+           width: 400px;
+           /* width: 400px; */
+           height: 255px;
+           order: 2;
+           position: relative;
+           bottom: 10px;
+         }
+    
+       &__content{
+       
+        margin: none;
+        width: 95%;
+        order: 1;
+        border-radius: 25px;
+        &-titulo{
+            width: 50%;
+            height: 50px;
+            line-height: 50px;
+            font-size:1.2em;
+            position: static;
+            margin: 15px auto;
+        }
+        &-texto{
+            margin: 15px auto;
+            width: 75%;
+            position: static;
+            
+        }
+       }
+    }
+}
+.section-card{
+    width: 1050px;
+    height: 750px;
+    background-color: #ffffff;
+    padding: 0px;
+    border-radius: 25px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-bottom: 15px;
+    margin-top: 25px;
+    &__divtitulo{  
+        width: 100%;
+        height: 300px;
+        background: rgb(84,18,170);
+        background: linear-gradient(82deg, rgba(84,18,170,1) 1%, rgba(92,23,224,0.9906337535014006) 19%, rgba(205,22,114,1) 76%);
+
+        text-align: center;
+        line-height: 120px;
+        clip-path: ellipse(60% 70% at 50% 0%);
+        border-radius: 25px
+    }
+    &__titulo{
+        animation-name: titulo;
+        animation-duration: 4s;
+        color: #ffffff;
+        font-size: 2em;
+    }
+    &__titulo2{
+        position: relative;
+        bottom: 50px;  
+        animation-name: titulo2;
+        animation-duration: 4s;
+        color: #ffffff;
+        font-size: 1.25em;
+    }
+    &__card-container{
+        display: flex;
+        justify-content: center;
+       /*  border: 1px solid black; */
+        height: 400px;
+        position: relative;
+        bottom: 50px;
+    }
+    .card-nosotros{
+        width: 350px;
+        height: 450px;
+        background-color: #EBEBEB;
+        margin: 20px;
+        animation-name: ani;
+        animation-duration: 1.5s;
+        transition: all 200ms;
+        &__titulo{
+            text-align: center;
+            padding: 10px;
+            border-bottom: 1px solid #ae1361;
+        }
+        &__img{
+            width: 275px;
+            height: 270px;
+            margin-left: 15px;
+        }
+       
+        &:hover{
+            transform: translateY(-35px);
+        
+        }
+    }
+    }
+
+
+    @media(min-width: 300px) and (max-width: 768px){
+        .section-card{
+            width: 95%;
+            height: 1500px;
+            &__card-container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 400px;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   @keyframes ani {
+    0%{transform: translateY(-40px);
+        opacity: 0%;
+    }
+    100%{transform: translateY(0px);}
+   }
+   @keyframes titulo{
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+   }
+   @keyframes titulo2{
+    0%{
+        opacity: 0%;
+    }
+    30%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+   }
+
+
+/* 
+
+   animation-name: circulo;
+   animation-duration: 2s;  
+  
+   @keyframes circulo {
+    0%{
+     clip-path: circle(0% at 50% 50%);
+     background-color: green;
+    } 
+    100%{
+     clip-path: circle(100% at 50% 50%); 
+     background-color: blue;
+    }
+ } */

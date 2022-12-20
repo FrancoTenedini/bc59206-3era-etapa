@@ -1,0 +1,189 @@
+.carrito-precio{
+    width: 150px;
+    height: 75px;
+    display: block;
+    border: 1px solid black;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 75px;
+    margin: auto;
+    font-size: 1.5em;
+    margin-top: 40px;
+}
+
+.section-carrito {
+    display: none;
+    position: fixed;
+    background-color: #f1f2f3;
+    z-index: 5;
+    width: 80%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid black;
+    border-radius: 15px;
+    align-self: start;
+    animation-name: carrion;
+    animation-duration: 0.3s;
+    @keyframes carrion {
+        0%{opacity: 0%;}
+        100%{opacity: 100%;}
+    }
+    &--visible {
+        display: block; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    @media (min-width: 300px) and (max-width: 768px) {
+        z-index: 999;
+        width: 98%;
+        height: 95%;
+    }
+}
+
+.totalCarrito{
+    color: #c10f68;
+    background-color:#EDEDE3 ;
+    text-align: center;
+    /* line-height: 50%; */
+    font-size: 22px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    border: 1px solid black;
+}
+
+.containerTable{
+    margin: auto;
+    margin-top: 50px;
+    height: 80%;
+    width: 95%;
+    overflow: auto;
+    @media (min-width: 300px) and (max-width: 768px) {
+       height: 75%;
+
+    }
+}
+
+
+.btn__enviarCarrito{
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+    margin: 5px;
+    width: 75px;
+    height: 35px;
+    border: 1px solid rgb(158, 151, 151);
+    border-radius: 20px;
+    font-size: 1.2em;
+    transition: all 150ms;
+    &:hover{
+        border: 2px solid black;
+        background-color: rgb(7, 175, 7);
+        border-radius: 5px;
+        transition: all 150ms;
+    }
+}   
+
+.btn__cerrarCarrito{
+    cursor: pointer;
+    position: absolute;
+    border: none;
+    border: 1px solid rgb(158, 151, 151);
+    border-radius: 100px;
+    height: 35px;
+    width: 35px;
+    padding: 5px;
+    right: 1px;
+    top: 1px;
+    margin: 5px;
+    transition: all 75ms;
+    &:hover{
+        border: 2px solid black;
+        border-radius: 100px;
+        
+    }
+}
+
+.carrito-table{
+    margin: auto;
+    width: 100%;
+    border-collapse: collapse;   
+        
+
+       
+            &__tr2{
+                background-color: white;
+                height: 200px;
+                border-bottom: 1px solid black;
+                @media (min-width: 300px) and (max-width: 768px) {
+                    height: 50px;
+                }
+                &--foto{
+                    width: 30%;
+                   &__img{
+                        display: block;
+                        margin: 0 auto;
+                        width: 50px;
+                   }
+                }
+                &__descripcion{
+                    &--nombre{
+                        font-size: 1.5em;
+                        font-weight: 700;
+                        margin: 5px;
+                        @media (min-width: 300px) and (max-width: 768px) {
+                            font-size: 1.1em;
+                        }
+                    }
+                    &--marca{
+                       font-size: 0.8em;
+                       margin: 5px;
+                    }
+                }
+                
+                &--envio{
+                    text-align: center;
+                }
+
+                &--precio{
+                    text-align: center;
+                    font-weight: 700;
+                }
+                &__acciones{
+                    &--cantidad{
+                        margin: 5px;
+                        
+                    }
+                    &--borrar{
+                       /*  background-color: ; */
+                        cursor: pointer;
+                        margin: 5px;
+                        border-radius: 5px;
+                        border: 1px solid black;
+                        text-align: center;
+                        width: 75px;
+                        height: 25px;
+                    }
+                }
+
+
+            }
+        
+}
+
+
+.textoVacio{
+    color: #18131F;
+    text-decoration: underline;
+}
+
+.fondo{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 2;
+}
+

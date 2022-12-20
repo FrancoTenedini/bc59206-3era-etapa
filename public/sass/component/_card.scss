@@ -1,0 +1,284 @@
+.confirmacionOff{
+    display: none;
+}
+
+.confirmacionOn{
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #cecece;
+    border-radius: 20px;
+    border: 3px solid green;
+    width: 150px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: green;
+    opacity: 100px;
+    animation-name: confirm;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    opacity: 0;
+    @keyframes confirm {
+        0%{
+            opacity: 0;
+        }
+        50%{
+            opacity: 100;
+        }
+        100%{
+            opacity: 0;
+        }
+    } 
+}
+
+
+.cards-container{
+    margin-top: 20px;
+    @media (min-width: 300px) and (max-width: 768px) {
+        gap: 0.5em;
+    }
+}
+
+.section-cards{
+    width: 100%;
+}
+
+.section-cards__header{
+/*     clip-path: polygon(0 0, 72% 0, 50% 85%, 0 100%);  */
+    background: rgb(205,22,114);
+    background: linear-gradient(82deg, rgba(205,22,114,1) 0%, rgba(92,23,224,0.9094012605042017) 85%, rgba(83,18,167,1) 100%);
+    height: 400px;
+    width: 1200px;
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border-radius: 20px;
+    margin-top: 120px;
+        @media(min-width: 1px) and (max-width: 768px){
+           border-radius: 0px;
+           margin-top: 60px; 
+           width: 100%;
+           clip-path: circle(92.9% at 49% 0);
+           height: 400px;
+        }
+    &__containerTitle{
+        width: 100%;
+       
+        &--title{
+          width: 75%;
+          color: white;
+          font-size: 2em;
+          margin-left: 20%;
+          margin-bottom: 15px;
+          @media (min-width: 300px) and (max-width: 768px) {
+            font-size: 1.5em;
+        }
+        }
+        &--p{
+            width: 75%;
+            margin-left: 20%;
+            color: white;
+            font-size: 1em;
+            @media (min-width: 300px) and (max-width: 768px) {
+                font-size: 0.8em;
+            }
+        }
+    }
+    &__containerImg{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        &--img{
+            width: 50%;
+            height: 75%;
+            background-image: url(../../img/principal/undraw_outer_space_re_u9vd.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            animation-name: titleImg;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            @media (min-width: 300px) and (max-width: 768px) {
+                width: 80%;
+                height: 50%;
+            }
+            @keyframes titleImg {
+                0%{
+                    transform: translateY(-10px);
+                }
+                50%{
+                    transform: translateY(10px);
+                }
+                100%{
+                    transform: translateY(-10px);
+                }
+            } 
+        }
+    }
+}
+
+.card{
+    outline: none;
+    flex-grow: 1;
+    width: 220px;
+    max-width: 220px;
+    height: 400px;
+    overflow: hidden;
+    box-sizing: 0 1px 5px rgba(0, 0, 0, .2), 0 0 3px rgba(0,0,0, .4);
+    transition: all .2s;
+    text-decoration: none;
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+    -webkit-box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+     background-color:  #FFFFFF;
+    color: #18131F;
+    border-radius: 25px;
+     &:hover{
+        border: #ae1361 1px solid;
+        border-radius: 10px;
+        transition: all 200ms;
+        -webkit-box-shadow:rgba(99, 99, 99, 0.2) 8px 25px 25px 0px;
+        box-shadow: rgba(99, 99, 99, 0.2) 8px 25px 25px 0px;
+      }
+      &:active{
+        border: green 5px solid;
+        transition: all 200ms;
+        border-radius: 10px;
+      }
+
+    &__article{
+        @media (min-width: 300px) and (max-width: 768px) {
+            display: flex;
+            height: 100%;
+            width: 350px;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__content{
+        display: flex;
+        flex-direction: column;
+        margin-left: 35px;
+    }
+    &__heading{
+        font-size: 1.1em;
+        background-color: #FFFFFF;
+        border-radius: 25px;
+        transition: all 300ms; 
+    }
+    &__description{
+        font-size: 1em;
+        width: 90%;
+        margin-top: 10px;
+        &--price{
+            margin-top: 10px;
+            font-size: 20px;
+        }
+    }
+    &__image-container{
+        height: 280px; 
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    &__image{
+        width: 80%;
+        height: 85%;
+        object-fit: cover;
+        transition: 800ms;
+        border-radius: 10px;
+    }
+    &:hover &__image, 
+    &:focus &__image{
+        transform: scale(1.02);
+        transform-origin: center;
+    } 
+
+
+    &:hover &__heading{
+        background-color: #FFFFFF;
+       /*  transform: translateY(-125px); */
+        transition: all 300ms;
+        
+    }
+
+    @media(min-width: 1024px){
+        &{
+            min-width: 240px;
+        }
+    }
+    @media(min-width: 768px) and (max-width: 1024px){
+        &{
+            max-width: 768px ;
+            height: 475px;
+        }
+    }
+    @media(min-width: 300px) and (max-width: 768px) {
+        
+        &{
+            min-width: 90%;
+            max-width: 90%;
+            max-height: 200px;
+            width: 300px;
+            height: 500px;
+            border: 2px solid #ae1361;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            &:hover{
+                 box-shadow: none;
+                 border: 2px solid #ae1361;
+            }
+        
+        }
+        
+        &__image-container{
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        &__image{
+            width: 100%;
+            height: 100%;
+            background-color: #FFFFFF;
+        }
+
+        &__content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 50px;
+        }
+
+        &__heading{
+            width: 100px;
+            height: 50px;
+            height: 35px;
+            font-size: 1.2em;
+            line-height: 30px;
+            text-align: center;
+        }
+        &:hover &__content{
+            transform: none;   
+        }
+        &:hover &__image-container,
+        &:focus &__image-container{
+            width: 100%;
+        }
+        &__description{
+            font-size: 1em;
+            text-align: center
+        }
+    }
+}

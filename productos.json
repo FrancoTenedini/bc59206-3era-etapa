@@ -9,5 +9,16 @@
 		"foto": "fotoNueva2.jpg",
 		"envio": "false",
 		"id": "1"
+	},
+	{
+		"nombre": "producto 6",
+		"precio": "1234",
+		"stock": "6",
+		"marca": "marca 6",
+		"categoria": "categoria 6",
+		"detalles": "detalles 6",
+		"foto": "foto6.jpg",
+		"envio": "true",
+		"id": 1
 	}
 ]

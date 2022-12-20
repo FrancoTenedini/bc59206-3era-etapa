@@ -1,0 +1,30 @@
+body{background-color: #E4E4E4
+    }
+
+main{
+    display: flex;
+    justify-content: center;
+    width: 100%
+}
+.section-card{
+    background-color: #E4E4E4;
+    padding: 1em;
+    width: 100vw
+}
+
+.cards-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1500px;
+    gap: 1em;
+    margin: auto;
+    
+   
+
+    @media (min-width: 1200px){
+        &{
+            gap: 2em;
+        }
+    }
+}

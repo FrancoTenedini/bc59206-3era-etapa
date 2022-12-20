@@ -20,67 +20,107 @@ const ProductoModel = mongoose.model('productos', productoSchema)
 
 class ProductoModelMongoDB { 
 
-    async conectarDB(){
-        try{
-            //await mongoose.connect(process.env.URL_MONGODB_LOCAL) NO LO TOMA NO SE XQ
-            await mongoose.connect("mongodb://localhost:27017/bcecommerce")
-            console.log('Base de datos conectadas')
+    pk = '_id'
+
+    async conectarDB() {
+
+        try {
+            await mongoose.connect(process.env.URI_MONGODB_REMOTA)
+            console.log('Base de datos conectada!')
         } catch (error) {
-            console.log(`Error al intentar conectarse con la BD ${error}`)
+            console.log(`MongoDB error al conectar ${error}`)
         }
+    }  
+
+    genIdKey(obj) {
+
+        if(Array.isArray(obj)) {
+            for(let i=0; i<obj.length; i++) {
+                obj[i].id = obj[i][this.pk]
+            }
+        }
+        else {
+            obj.id = obj[this.pk]
+        }
+
+        return obj
     }
 
-    /* CRUD */
-    /* CREATE  http method post */
-    async createProducto(producto){
+
+    /* CRUD -> C: Create -> http method POST */
+    async createProducto(producto) {
+
         try {
-            const productoSave = new ProductoModel(producto) //creo la collection y la guardo en productoSave
+            
+            const productoSave = new ProductoModel(producto)
             await productoSave.save()
 
+            const productos = await ProductoModel.find({}).lean()
+            const productoGuardado = productos[productos.length-1]
+            return this.genIdKey(productoGuardado)
+
             return productoSave
+            
         } catch (error) {
-           console.log(`error en el create ${error}`) 
+            console.log(`Error en el createProducto: ${error}`)
         }
     }
 
-    /* READ ALL  http method get*/
-    async readProductos(){
-        
-        const productos = await ProductoModel.find({})
-        return productos
-    }
-
-    /* READ  http method get*/
-    async readProducto(id){
-        
-        const producto = await ProductoModel.findById(id)
-        return producto
-    }
-
-    /* UPDATE http method put */
-    async updateProducto(id, producto){
-        
+    /* CRUD -> R: Read ALL -> http method GET */
+    async readProductos() {
         try {
-            const resultado = await ProductoModel.updateOne({_id: id}, {$set: producto})
+            const productos = await ProductoModel.find({}).lean() // lean convierte obj mongoose en un obj vanilla js
+            return this.genIdKey(productos)
+        } catch (error) {
+            console.log(`Error en readProductos: ${error}`)
+            return []
+        }
+        
+    }
+
+    /* CRUD -> R: Read ONE -> http method GET */
+    async readProducto(id) {
+
+        try {
+            const producto = await ProductoModel.findById(id).lean()
+            return this.genIdKey(producto)
+        } catch (error) {
+            console.log(`Error en readProducto: ${error}`)
+            return {}
+        }
+        
+    }
+
+    /* CRUD -> U: UPDATE -> http method PUT */
+    async updateProducto(id, producto) {
+
+        try {
+            
+            const resultado = await ProductoModel.updateOne({_id: id},{$set: producto})
             console.log(resultado)
 
-            const productoActualizado = await ProductoModel.findById(id)
+            const productoActualizado = await ProductoModel.findById(id).lean()
 
-            return {resultado, productoActualizado}
+            return this.genIdKey(productoActualizado)
         } catch (error) {
-            console.log(`Error en el update: ${error}`)
+            console.log(`Error en updateProducto: ${error}`)
+            return {}
         }
-
+        
     }
 
-    /* DELETE http method delete */
-    async deleteProducto(id){
+    /* CRUD -> D: DELETE -> http method DELETE */
+    async deleteProducto(id) {
+        
         try {
-            await ProductoModel.findByIdAndDelete(id)
-            return 'Ok deleteProducto'
+            //await ProductoModel.deleteOne({_id: id})    
+            const productoBorrado = await ProductoModel.findByIdAndDelete(id)
+            return this.genIdKey(productoBorrado)
+
         } catch (error) {
             console.log(`Error en deleteProducto: ${error}`)
-        }
+            return {}
+        }   
     }
 }
 
